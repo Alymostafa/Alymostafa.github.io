@@ -1,0 +1,529 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Aly Kassem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --ground:      #FFFFFF;
+    --surface:     #F3F5F8;
+    --ink:         #111418;
+    --ink-muted:   #525A66;
+    --ink-faint:   #8D95A1;
+    --rule:        #E4E7EC;
+    --accent:      #1D4ED8;
+    --accent-soft: #DBE5FB;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0F1217;
+      --surface:     #181C23;
+      --ink:         #E8EBF0;
+      --ink-muted:   #A2AAB6;
+      --ink-faint:   #6B7380;
+      --rule:        #262B34;
+      --accent:      #7AA2F7;
+      --accent-soft: #1C2740;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #0F1217;
+    --surface:     #181C23;
+    --ink:         #E8EBF0;
+    --ink-muted:   #A2AAB6;
+    --ink-faint:   #6B7380;
+    --rule:        #262B34;
+    --accent:      #7AA2F7;
+    --accent-soft: #1C2740;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+    transition: border-color .15s ease;
+  }
+  a:hover { border-bottom-color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  /* ---------- masthead ---------- */
+  header { display: flex; flex-direction: column; gap: 1.35rem; }
+
+  .identity { display: flex; align-items: flex-start; gap: 1.75rem; }
+
+  /* Replace the <span> inside .portrait with:
+     <img src="photo.jpg" alt="Aly M. Kassem"> */
+  .portrait {
+    flex: 0 0 auto;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+  }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .portrait span {
+    font-family: Newsreader, Georgia, serif;
+    font-size: 1.8rem;
+    letter-spacing: .04em;
+    color: var(--accent);
+  }
+
+  .nameplate { display: flex; flex-direction: column; gap: .45rem; padding-top: .5rem; }
+
+  h1 {
+    font-family: Newsreader, Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(2.1rem, 5.5vw, 2.7rem);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0;
+  }
+
+  .name-ar {
+    font-family: Amiri, "Noto Naskh Arabic", "Times New Roman", serif;
+    font-size: 1.6rem;
+    line-height: 1.9;
+    color: var(--ink-muted);
+    margin: -.15rem 0 .15rem;
+    direction: rtl;
+    text-align: left;
+  }
+
+  .contact-line {
+    font-family: Newsreader, Georgia, serif;
+    font-size: 1.12rem;
+    font-style: italic;
+    color: var(--ink);
+    border-left: 2px solid var(--accent-soft);
+    padding-left: 1rem;
+    margin-top: .35rem;
+    max-width: 52ch;
+  }
+
+  .position { color: var(--ink-muted); font-size: .97rem; max-width: 36ch; }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem 1.05rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .78rem;
+    letter-spacing: .02em;
+    margin-top: .2rem;
+  }
+  .links a { border-bottom-color: transparent; color: var(--ink-muted); }
+  .links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .links span { color: var(--ink-faint); }
+
+  #theme-toggle {
+    font: inherit;
+    color: var(--ink-faint);
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    letter-spacing: .02em;
+  }
+  #theme-toggle:hover { color: var(--accent); }
+  #theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  @media (max-width: 32rem) {
+    .identity { flex-direction: column; gap: 1.1rem; }
+    .portrait { width: 6rem; height: 6rem; }
+  }
+
+  /* ---------- sections ---------- */
+  section { display: flex; flex-direction: column; gap: 1.05rem; }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .7rem;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding-bottom: .55rem;
+    border-bottom: 1px solid var(--rule);
+    margin: 0;
+  }
+
+  p { margin: 0; }
+  .prose { display: flex; flex-direction: column; gap: .9rem; max-width: 66ch; }
+  .prose strong { font-weight: 500; }
+
+  /* ---------- dated feed (news / experience) ---------- */
+  .feed { display: flex; flex-direction: column; gap: .75rem; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 7.25rem 1fr;
+    gap: .15rem 1.25rem;
+    align-items: baseline;
+  }
+  .entry-date {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .74rem;
+    letter-spacing: .04em;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .entry-body { font-size: .96rem; line-height: 1.55; }
+  .entry-body strong { font-weight: 500; }
+  .entry-body .where { color: var(--ink-muted); }
+  .entry-body .desc {
+    display: block;
+    color: var(--ink-muted);
+    font-size: .91rem;
+    line-height: 1.5;
+    margin-top: .12rem;
+    max-width: 58ch;
+  }
+
+  @media (max-width: 32rem) {
+    .entry { grid-template-columns: 1fr; gap: .1rem; }
+  }
+
+  /* ---------- publications ---------- */
+  .pubs { display: flex; flex-direction: column; gap: 1.15rem; }
+
+  .pub { display: flex; flex-direction: column; gap: .3rem; }
+  .pub-title { font-size: .99rem; line-height: 1.45; }
+  .pub-authors {
+    font-size: .875rem;
+    line-height: 1.5;
+    color: var(--ink-muted);
+    max-width: 64ch;
+  }
+  .pub-authors .me { color: var(--ink); font-weight: 500; }
+  .pub-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .4rem .7rem;
+  }
+  .pub-venue {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .73rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: .35rem; }
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .67rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: .08rem .38rem;
+  }
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .3rem .55rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .71rem;
+    letter-spacing: .04em;
+  }
+  .pub-links a { color: var(--ink-muted); border-bottom-color: transparent; }
+  .pub-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .pub-links .sep { color: var(--ink-faint); }
+
+  .aside {
+    font-size: .87rem;
+    color: var(--ink-muted);
+  }
+
+  /* ---------- simple lists ---------- */
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: .55rem;
+    font-size: .95rem;
+    color: var(--ink-muted);
+  }
+  .list strong { color: var(--ink); font-weight: 500; }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.3rem;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .75rem;
+    color: var(--ink-faint);
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem 1.2rem;
+    justify-content: space-between;
+  }
+</style>
+
+<div class="page">
+
+  <header>
+    <div class="identity">
+      <!-- Swap the <span> below for: <img src="photo.jpg" alt="Aly M. Kassem"> -->
+      <div class="portrait"><span>AK</span></div>
+      <div class="nameplate">
+        <h1>Aly M. Kassem</h1>
+        <p class="name-ar" lang="ar" dir="rtl">عَلِيّ مُصْطَفَي قَاسِم</p>
+        <p class="position">Research Assistant at Mila · Member of Technical Staff at Skyfall AI</p>
+        <nav class="links" aria-label="Contact and profiles">
+          <a href="mailto:kassem6@uwindsor.ca">Email</a>
+          <a href="https://scholar.google.com/citations?user=KszgLh0AAAAJ&amp;hl=en">Google Scholar</a>
+          <a href="https://github.com/Alymostafa">GitHub</a>
+          <a href="https://www.linkedin.com/in/aly-kassem/">LinkedIn</a>
+          <span>Kitchener, ON</span>
+          <button id="theme-toggle" type="button" aria-label="Switch colour theme">Theme</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="prose">
+      <p>I'm an AI safety researcher working on the failure modes of large language models. I'm a Research Assistant at <a href="https://mila.quebec/">Mila</a>, where I work with <a href="https://gfarnadi.github.io/">Prof. Golnoosh Farnadi</a>, and a Member of Technical Staff at <strong>Skyfall AI</strong>, where I work on dynamic world modeling and on optimizing LLM utilization and distillation.</p>
+      <p>My research interests are memorization and unlearning, the off-target effects of fine-tuning, adversarial robustness and red-teaming, prompt injection, model evaluation, and mechanistic interpretability — broadly, understanding what a model does that nobody intended, and building the evaluations that surface it. My work with Prof. Farnadi on the off-target effects of fine-tuning is supported by a grant from <strong>Coefficient Giving</strong>.</p>
+      <p>Previously I was a Technical AI Safety &amp; Governance Research Fellow at the <a href="https://www.oxfordmartin.ox.ac.uk/ai-governance">Oxford Martin AI Governance Initiative</a>, and an ML Research Engineer at <strong>DynamoFL</strong>, where I built LLM red-teaming and adversarial evaluation systems. I hold an M.Sc. in Computer Science (AI stream) from the <a href="https://www.uwindsor.ca/">University of Windsor</a>, where I was a <strong>Vector Scholar in AI</strong>. My work has appeared at EMNLP, NAACL, and EACL.</p>
+      <p>Outside of work I read across diverse topics — novels, political science, and history. I competed in track and field through high school and my first two years of university, and I still run. More recently I've been getting into hiking.</p>
+      <p class="contact-line">Always happy to chat or collaborate — <a href="mailto:kassem6@uwindsor.ca">email me</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">News</p>
+    <div class="feed">
+
+      <div class="entry">
+        <span class="entry-date">Aug 2026</span>
+        <span class="entry-body"><strong>Delta-Crosscoder</strong> accepted at <span class="where">EMNLP 2026</span>.</span>
+      </div>
+
+      <div class="entry">
+        <span class="entry-date">2026</span>
+        <span class="entry-body">Received a research grant from <strong>Coefficient Giving</strong> with Prof. Golnoosh Farnadi to study the off-target effects of fine-tuning in LLMs.</span>
+      </div>
+
+      <div class="entry">
+        <span class="entry-date">2026</span>
+        <span class="entry-body">Joined <strong>Skyfall AI</strong> as a Member of Technical Staff, working on dynamic world modeling.</span>
+      </div>
+
+      <div class="entry">
+        <span class="entry-date">2026</span>
+        <span class="entry-body"><strong>How Robust Are Router-LLMs?</strong> accepted at <span class="where">EACL 2026</span>.</span>
+      </div>
+
+      <div class="entry">
+        <span class="entry-date">Aug 2025</span>
+        <span class="entry-body"><strong>Reviving Your MNEME</strong> accepted at <span class="where">EMNLP 2025</span>.</span>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Selected publications</p>
+    <div class="pubs">
+
+      <div class="pub">
+        <span class="pub-title">Delta-Crosscoder: Robust Crosscoder Model Diffing in Narrow Fine-Tuning Regimes</span>
+        <p class="pub-authors"><span class="me">Aly M. Kassem</span>, Thomas Jiralerspong, Negar Rostamzadeh, Golnoosh Farnadi</p>
+        <div class="pub-meta">
+          <span class="pub-venue">EMNLP 2026</span>
+          <span class="tags"><span class="tag">Interpretability</span><span class="tag">Model diffing</span></span>
+        </div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2603.04426">arXiv</a><span class="sep">/</span><a href="https://openreview.net/forum?id=M77kif8b6z">OpenReview</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">How Robust Are Router-LLMs? Analysis of the Fragility of LLM Routing Capabilities</span>
+        <p class="pub-authors"><span class="me">Aly M. Kassem</span>, Bernhard Schölkopf, Zhijing Jin</p>
+        <div class="pub-meta">
+          <span class="pub-venue">EACL 2026</span>
+          <span class="tags"><span class="tag">Robustness</span><span class="tag">Evaluation</span></span>
+        </div>
+        <div class="pub-links">
+          <a href="https://aclanthology.org/2026.eacl-long.351/">ACL Anthology</a><span class="sep">/</span><a href="https://arxiv.org/abs/2504.07113">arXiv</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">Reviving Your MNEME: Predicting the Side Effects of LLM Unlearning and Fine-Tuning via Sparse Model Diffing</span>
+        <p class="pub-authors"><span class="me">Aly M. Kassem</span>, Zhuan Shi, Negar Rostamzadeh, Golnoosh Farnadi</p>
+        <div class="pub-meta">
+          <span class="pub-venue">EMNLP 2025</span>
+          <span class="tags"><span class="tag">Unlearning</span><span class="tag">Fine-tuning</span></span>
+        </div>
+        <div class="pub-links">
+          <a href="https://aclanthology.org/2025.emnlp-main.1641/">ACL Anthology</a><span class="sep">/</span><a href="https://arxiv.org/abs/2507.21084">arXiv</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">Alpaca against Vicuna: Using LLMs to Uncover Memorization of LLMs</span>
+        <p class="pub-authors"><span class="me">Aly M. Kassem</span>, Omar Mahmoud, Niloofar Mireshghallah, Hyunwoo Kim, Yulia Tsvetkov, Yejin Choi, Sherif Saad, Santu Rana</p>
+        <div class="pub-meta">
+          <span class="pub-venue">NAACL 2025</span>
+          <span class="tags"><span class="tag">Memorization</span><span class="tag">Evaluation</span></span>
+        </div>
+        <div class="pub-links">
+          <a href="https://aclanthology.org/2025.naacl-long.421/">ACL Anthology</a><span class="sep">/</span><a href="https://arxiv.org/abs/2403.04801">arXiv</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">Finding a Needle in the Adversarial Haystack: A Targeted Paraphrasing Approach for Uncovering Edge Cases with Minimal Distribution Distortion</span>
+        <p class="pub-authors"><span class="me">Aly Kassem</span>, Sherif Saad</p>
+        <div class="pub-meta">
+          <span class="pub-venue">EACL 2024</span>
+          <span class="tags"><span class="tag">Red-teaming</span><span class="tag">Robustness</span></span>
+        </div>
+        <div class="pub-links">
+          <a href="https://aclanthology.org/2024.eacl-long.33/">ACL Anthology</a><span class="sep">/</span><a href="https://arxiv.org/abs/2401.11373">arXiv</a><span class="sep">/</span><a href="https://huggingface.co/alykassem/FLAN-T5-Paraphraser">Model</a>
+        </div>
+      </div>
+
+      <div class="pub">
+        <span class="pub-title">Preserving Privacy Through Dememorization: An Unlearning Technique for Mitigating Memorization Risks in Language Models</span>
+        <p class="pub-authors"><span class="me">Aly Kassem</span>, Omar Mahmoud, Sherif Saad</p>
+        <div class="pub-meta">
+          <span class="pub-venue">EMNLP 2023</span>
+          <span class="tags"><span class="tag">Privacy</span><span class="tag">Unlearning</span></span>
+        </div>
+        <div class="pub-links">
+          <a href="https://aclanthology.org/2023.emnlp-main.265/">ACL Anthology</a>
+        </div>
+      </div>
+
+    </div>
+    <p class="aside">Full list on <a href="https://scholar.google.com/citations?user=KszgLh0AAAAJ&amp;hl=en">Google Scholar</a>.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">Selected experience</p>
+    <div class="feed">
+
+      <div class="entry">
+        <span class="entry-date">2026 –</span>
+        <span class="entry-body"><strong>Skyfall AI</strong> — Member of Technical Staff
+          <span class="desc">Dynamic world modeling; optimizing LLM utilization and distillation.</span></span>
+      </div>
+
+      <div class="entry">
+        <span class="entry-date">2025 –</span>
+        <span class="entry-body"><strong>Mila</strong> — Research Assistant, Montréal
+          <span class="desc">Safety-relevant side-effects of LLM fine-tuning; large-scale model evaluation and reproducible experimentation pipelines.</span></span>
+      </div>
+
+      <div class="entry">
+        <span class="entry-date">Mar – May 2026</span>
+        <span class="entry-body"><strong>Freelance</strong> — AI Researcher, Kitchener, ON (remote)
+          <span class="desc">Independent research engagements on LLM evaluation and safety.</span></span>
+      </div>
+
+      <div class="entry">
+        <span class="entry-date">2025</span>
+        <span class="entry-body"><strong>University of Oxford</strong> — Research Fellow, Oxford Martin AI Governance Initiative
+          <span class="desc">Mechanistic interpretability of LLM internals and quantitative methods for evaluating model behavior, robustness, and controllability.</span></span>
+      </div>
+
+      <div class="entry">
+        <span class="entry-date">2024 – 25</span>
+        <span class="entry-body"><strong>DynamoFL</strong> — ML Research Engineer, SF Bay Area
+          <span class="desc">Built LLM red-teaming and adversarial evaluation systems targeting prompt injection, memorization, and data leakage.</span></span>
+      </div>
+
+      <div class="entry">
+        <span class="entry-date">2022 – 24</span>
+        <span class="entry-body"><strong>WASP Lab, University of Windsor</strong> — Research Assistant
+          <span class="desc">Post-training unlearning methods for removing memorized content; automated robustness and safety evaluation frameworks.</span></span>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Awards &amp; funding</p>
+    <div class="list">
+      <span><strong>Coefficient Giving research grant</strong> (2026) — with Prof. Golnoosh Farnadi, for work on the off-target effects of fine-tuning in LLMs.</span>
+      <span><strong>Vector Scholarship in AI</strong> (2022–23), $17,500 — merit-based award to the top 1% of Ontario graduate students in AI.</span>
+      <span><strong>School of Computer Science Scholarship</strong>, University of Windsor (2022), ~$5,000 — merit award for academic excellence.</span>
+      <span><strong>Research Assistantship</strong>, University of Windsor (2022), ~$30,000.</span>
+    </div>
+  </section>
+
+  <section>
+    <p class="eyebrow">Reviewing</p>
+    <div class="list">
+      <span>Reviewer for <strong>ACL</strong>, <strong>EMNLP</strong>, <strong>COLM</strong>, <strong>TMLR</strong>, <strong>ICML</strong>, and <strong>NeurIPS</strong> (2023–2026).</span>
+      <span>Glad to talk with students and early-career researchers looking for advice on research, applications, or getting started in the field.</span>
+    </div>
+  </section>
+
+  <footer>
+    <span>Aly M. Kassem</span>
+    <span>Updated October 2026</span>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById('theme-toggle');
+
+    function stored() {
+      try { return localStorage.getItem('theme'); } catch (e) { return null; }
+    }
+    function save(v) {
+      try { localStorage.setItem('theme', v); } catch (e) {}
+    }
+
+    var saved = stored();
+    if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+
+    btn.addEventListener('click', function () {
+      var systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var current = root.getAttribute('data-theme') || (systemDark ? 'dark' : 'light');
+      var next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      save(next);
+    });
+  })();
+</script>
+
+</body></html>
